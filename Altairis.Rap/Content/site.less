@@ -7,12 +7,12 @@
 @Padding: 20px;
 
 body {
-    background-color: @BaseColor;
-    font-family: @BaseFont;
-    font-size: 1em;
     margin: 0 auto;
     padding: 0;
     max-width: 980px;
+    background-color: @BaseColor;
+    font-size: 1em;
+    font-family: @BaseFont;
 
     a {
         &:link {
@@ -53,16 +53,16 @@ body {
         }
 
         a {
+            margin-left: 2ex;
             color: @White !important;
             text-decoration: none;
-            margin-left: 2ex;
         }
 
         aside {
+            padding: .5ex 1ex;
             background-color: @Black;
             text-align: right;
             font-size: 80%;
-            padding: .5ex 1ex;
 
             span {
                 float: left;
@@ -75,15 +75,15 @@ body {
     > section {
         margin: @Padding / 2;
         padding: @Padding;
-        background-color: @White;
         border-radius: @Padding;
+        background-color: @White;
 
         footer {
-            background-color: fadeout(@Accent1, 90);
             margin: -@Padding;
             margin-top: @Padding;
             padding: @Padding;
             border-radius: 0 0 @Padding @Padding;
+            background-color: fadeout(@Accent1, 90);
 
             &.pager {
                 text-align: center;
@@ -96,10 +96,10 @@ body {
     }
 
     > footer {
-        font-size: 80%;
-        text-align: center;
         margin-bottom: 1em;
         color: #999;
+        text-align: center;
+        font-size: 80%;
 
         a {
             &:link, &:visited {
@@ -125,12 +125,12 @@ form {
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
-        width: 100%;
-        font-family: @BaseFont;
-        font-size: 1em;
         padding: @Padding/2;
+        width: 100%;
         border: 1px solid @BaseColor;
         border-radius: @Padding /4;
+        font-size: 1em;
+        font-family: @BaseFont;
 
         &:focus {
             border-color: @Accent1;
@@ -164,19 +164,19 @@ form {
 
 .button {
     display: inline-block;
-    text-align: center;
-    font-family: @BaseFont;
-    font-size: 1em;
     padding: @Padding/4 @Padding;
-    background-color: @Accent1;
-    color: @White;
     border: 2px solid @Accent1;
     border-radius: @Padding / 4;
+    background-color: @Accent1;
+    color: @White;
+    text-align: center;
+    font-size: 1em;
+    font-family: @BaseFont;
     cursor: pointer;
 
     a& {
-        text-decoration: none !important;
         color: @White !important;
+        text-decoration: none !important;
 
         &:hover {
             background-color: @Black;
@@ -184,8 +184,8 @@ form {
     }
 
     &.secondary {
-        background-color: @BaseColor;
         border: 2px solid @Accent1;
+        background-color: @BaseColor;
         color: @Accent1 !important;
 
         &:hover {
@@ -195,40 +195,40 @@ form {
 
     &.prev {
         float: left;
-        font-weight: bold;
+        padding: @Padding/4 1ex;
         border-color: @Accent2;
         background-color: @Accent2;
-        padding: @Padding/4 1ex;
+        font-weight: bold;
     }
 
     &.next {
         float: right;
-        font-weight: bold;
+        padding: @Padding/4 1ex;
         border-color: @Accent2;
         background-color: @Accent2;
-        padding: @Padding/4 1ex;
+        font-weight: bold;
     }
 }
 
 
 
 h2 {
-    background-color: fadeout(@Accent2, 80);
     margin: -@Padding -@Padding @Padding -@Padding;
     padding: @Padding/2 @Padding;
+    border-radius: @Padding @Padding 0 0;
+    background-color: fadeout(@Accent2, 80);
     color: @Accent2;
     font-weight: 100;
     font-size: 160%;
-    border-radius: @Padding @Padding 0 0;
 }
 
 table.grid {
-    border-collapse: collapse;
     width: 100%;
+    border-collapse: collapse;
 
     td, th {
-        border: solid 1px @Accent1;
         padding: @Padding/4;
+        border: solid 1px @Accent1;
         text-align: left;
 
         &.gravatar {
@@ -248,9 +248,9 @@ table.grid {
 
 article {
     margin-bottom: 1ex;
+    min-height: 50px;
     border: 1px solid fadeout(@Accent1, 60);
     border-radius: .5ex;
-    min-height: 50px;
 
     .gravatar {
         float: left;
@@ -262,13 +262,13 @@ article {
     h3 {
         margin: 0;
         padding: .1ex 0;
+        min-height: 25px;
+        border-top-left-radius: .5ex;
+        border-top-right-radius: .5ex;
+        background-color: fadeout(@Accent1, 90);
         color: @Accent1;
         font-weight: bold;
         font-size: 100%;
-        background-color: fadeout(@Accent1, 90);
-        border-top-left-radius: .5ex;
-        border-top-right-radius: .5ex;
-        min-height: 25px;
     }
 
     aside {
