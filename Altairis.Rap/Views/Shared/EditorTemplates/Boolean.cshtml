@@ -1,15 +1,11 @@
 ﻿@{ Layout = "~/Views/Shared/EditorTemplates/_Layout.cshtml"; }
- 
 @{
     bool? value = null;
-    if (ViewData.Model != null)
-    {
+    if (ViewData.Model != null) {
         value = Convert.ToBoolean(ViewData.Model, System.Globalization.CultureInfo.InvariantCulture);
     }
 }
-
-@if (ViewData.ModelMetadata.IsNullableValueType)
-{
+@if (ViewData.ModelMetadata.IsNullableValueType) {
 
     var triStateValues = new List<SelectListItem>
     {
@@ -17,9 +13,8 @@
         new SelectListItem {Text = "True", Value = "true", Selected = value.HasValue && value.Value},
         new SelectListItem {Text = "False", Value = "false", Selected = value.HasValue && !value.Value},
     };
-    @Html.DropDownList("", triStateValues, new {@class = "list-box tri-state"})
+    @Html.DropDownList("", triStateValues, new { @class = "dropdown" })
 }
-else
-{
-    @Html.CheckBox("", value ?? false, new {@class = "check-box"})
+else {
+    @Html.CheckBox("", value ?? false, new { @class = "checkbox" })
 }

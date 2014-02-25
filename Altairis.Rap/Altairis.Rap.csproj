@@ -217,20 +217,6 @@
     <Content Include="Scripts\jquery.ui.timepicker.js" />
     <Content Include="Scripts\modernizr-2.7.1.js" />
     <Content Include="Scripts\Site\core.js" />
-    <Content Include="Views\Shared\DisplayTemplates\Boolean.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\Collection.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\Decimal.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\DisplaySection.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\Double.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\EmailAddress.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\Float.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\HiddenInput.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\Html.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\Object.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\String.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\Text.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\Url.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\_Layout.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Boolean.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Byte.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Collection.cshtml" />
@@ -453,16 +439,7 @@
       <Output TaskParameter="FormattedTime" PropertyName="TimeVersion" />
     </Time>
     <Message Text="$(AssemblyName) version $(TimeVersion)" Importance="high" />
-    <AssemblyInfo CodeLanguage="CS"
-                  OutputFile="Properties\AssemblyInfo.cs"
-                  AssemblyTitle="Altairis Rap Web UI"
-                  AssemblyDescription="Rezervační systém (nejen) pro jezdecké oddíly."
-                  AssemblyCompany="Altairis, s. r. o."
-                  AssemblyProduct="Altairis Rap"
-                  AssemblyCopyright="Copyright © Altairis, $(Year)"
-                  AssemblyConfiguration="$(BuildConfiguration)"
-                  AssemblyVersion="$(TimeVersion)"
-                  AssemblyFileVersion="$(TimeVersion)" />
+    <AssemblyInfo CodeLanguage="CS" OutputFile="Properties\AssemblyInfo.cs" AssemblyTitle="Altairis Rap Web UI" AssemblyDescription="Rezervační systém (nejen) pro jezdecké oddíly." AssemblyCompany="Altairis, s. r. o." AssemblyProduct="Altairis Rap" AssemblyCopyright="Copyright © Altairis, $(Year)" AssemblyConfiguration="$(BuildConfiguration)" AssemblyVersion="$(TimeVersion)" AssemblyFileVersion="$(TimeVersion)" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
