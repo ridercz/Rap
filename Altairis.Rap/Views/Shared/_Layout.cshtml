@@ -10,14 +10,18 @@
 <body>
     <header>
         <h1>@Html.ActionLink(RuntimeOptions.Current.ApplicationTitle, "Index", "Home", new { area = "" }, null)</h1>
-        @if (this.Request.IsAuthenticated) {
-            <aside>
+        <nav>
+            @if (this.Request.IsAuthenticated) {
                 <span>@this.User.Identity.Name</span>
                 <a href="@Url.Action("Index", "Account", new { area = "" }, null)">&#x1f527; nastavení</a>
                 <a href="@Url.Action("Logout", "Account", new { area = "" }, null)">&#x1f6aa; odhlášení</a>
-            </aside>
-        }
+            }
+            else {
+                <text>&nbsp;</text>
+            }
+        </nav>
     </header>
+
     @if (ViewBag.SkipRenderingSection ?? false) {
         @RenderBody()
     }

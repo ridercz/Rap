@@ -41,13 +41,13 @@ body > header a {
   color: #ffffff !important;
   text-decoration: none;
 }
-body > header aside {
+body > header nav {
   padding: .5ex 1ex;
   background-color: #000000;
   text-align: right;
   font-size: 80%;
 }
-body > header aside span {
+body > header nav span {
   float: left;
   text-transform: uppercase;
   font-weight: bold;
