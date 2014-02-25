@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Altairis.Rap.Data.Activity>
+@{
+    ViewBag.Title = "Seznam aktivit";
+}
+<h2>@ViewBag.Title</h2>
+<table class="grid">
+    <thead>
+        <tr>
+            <th>Název</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    <a href="@Url.Action("Delete",new { activityId = item.ActivityId})" title="Smazat" class="icon">&#x274C;</a>
+                    @Html.ActionLink(item.Name, "Edit", new { activityId = item.ActivityId })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<footer>
+    @Html.ActionLink("Nová aktivita", "Create", null, new { @class = "button" })
+    @Html.ActionLink("Zpět", "Index", "Home", new { area = "" }, new { @class = "button secondary" })
+</footer>

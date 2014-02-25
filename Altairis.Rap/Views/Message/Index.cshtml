@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Altairis.Rap.Data.Message>
+@{
+    ViewBag.Title = "Nástěnka";
+}
+<h2>@ViewBag.Title</h2>
+@if (Model.Any()) {
+    foreach (var item in Model) {
+        @Html.Partial("_Message", item)
+    }
+    <footer class="pager">
+        @if (ViewBag.PageIndex > 1) {
+            <a href="@Url.Action("Index", new { pageIndex = ViewBag.PageIndex - 1 })" class="button prev">&#x23EA;</a>
+        }
+        <a href="@Url.Action("Index", new { pageIndex = ViewBag.PageIndex + 1 })" class="button next">&#x23E9;</a>
+        @Html.ActionLink("Napsat", "Create", null, new { @class = "button" })
+        @Html.ActionLink("Zpět", "Index", "Home", null, new { @class = "button secondary" })
+    </footer>
+}
+else {
+    <p>Na nástěnce nejsou žádné zprávy</p>
+    <footer>
+        @Html.ActionLink("Nová zpráva", "Create", null, new { @class = "button" })
+        @Html.ActionLink("Zpět", "Index", "Home", null, new { @class = "button secondary" })
+    </footer>
+}

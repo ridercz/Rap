@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Altairis.Rap.Data.Booking>
+<h2>@ViewBag.Title</h2>
+@if (!Model.Any()) {
+    <p>Nemáte žádné rezervace.</p>
+}
+else {
+    foreach (var item in Model) {
+        <article class="noicon">
+            <h3>
+                <a href="@Url.Action("Delete", new { bookingId = item.BookingId })" title="Smazat" class="icon">&#x274C;</a>
+                @item.DateString
+            </h3>
+            <aside>
+                @Html.ActionLink(item.Resource.Name, "Index", new { resourceId = item.ResourceId }) | @item.Activity.Name
+            </aside>
+            @if (!string.IsNullOrWhiteSpace(item.Notes)) {
+                <p>@item.Notes</p>
+            }
+        </article>
+    }
+}
+<footer>
+    @Html.ActionLink("Zpět", "Index", "Home", null, new { @class = "button secondary" })
+</footer>

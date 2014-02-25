@@ -1,0 +1,288 @@
+@White: #ffffff;
+@Black: #000000;
+@BaseColor: #dddddd;
+@Accent1: #008d6e;
+@Accent2: #DB5400;
+@BaseFont: 'Segoe UI', Arial, Helvetica, sans-serif;
+@Padding: 20px;
+
+body {
+    background-color: @BaseColor;
+    font-family: @BaseFont;
+    font-size: 1em;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 980px;
+
+    a {
+        &:link {
+            color: @Accent1;
+        }
+
+        &:visited {
+            color: darken(@Accent1, 10);
+        }
+
+        &:hover {
+            color: @Accent2;
+        }
+
+        &.icon {
+            text-decoration: none;
+
+            &:link, &:visited {
+                color: @Accent2;
+            }
+
+            &:hover {
+                color: @Accent1;
+            }
+        }
+    }
+
+    > header {
+        background-color: @Accent1;
+        color: @White;
+
+        h1 {
+            margin: 0;
+            padding: .25ex .5ex;
+            text-align: right;
+            font-weight: 100;
+            font-size: 200%;
+        }
+
+        a {
+            color: @White !important;
+            text-decoration: none;
+            margin-left: 2ex;
+        }
+
+        aside {
+            background-color: @Black;
+            text-align: right;
+            font-size: 80%;
+            padding: .5ex 1ex;
+
+            span {
+                float: left;
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+        }
+    }
+
+    > section {
+        margin: @Padding / 2;
+        padding: @Padding;
+        background-color: @White;
+        border-radius: @Padding;
+
+        footer {
+            background-color: fadeout(@Accent1, 90);
+            margin: -@Padding;
+            margin-top: @Padding;
+            padding: @Padding;
+            border-radius: 0 0 @Padding @Padding;
+
+            &.pager {
+                text-align: center;
+            }
+        }
+
+        > aside {
+            text-align: right;
+        }
+    }
+
+    > footer {
+        font-size: 80%;
+        text-align: center;
+        margin-bottom: 1em;
+    }
+}
+
+form {
+    margin: 0;
+    padding: 0;
+
+    header {
+        color: @Accent2;
+    }
+
+    .text-box {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 100%;
+        font-family: @BaseFont;
+        font-size: 1em;
+        padding: @Padding/2;
+        border: 1px solid @BaseColor;
+        border-radius: @Padding /4;
+
+        &:focus {
+            border-color: @Accent1;
+        }
+    }
+
+    input[type=date] {
+        width: 8em;
+    }
+
+    input[type=time] {
+        width: 5em;
+    }
+
+
+    .validation-summary-valid {
+        display: none;
+    }
+
+    .validation-summary-errors {
+        color: @Accent2;
+    }
+
+
+    hr {
+        border: none;
+        border-top: 1px solid @Accent1;
+    }
+}
+
+
+.button {
+    display: inline-block;
+    text-align: center;
+    font-family: @BaseFont;
+    font-size: 1em;
+    padding: @Padding/4 @Padding;
+    background-color: @Accent1;
+    color: @White;
+    border: 2px solid @Accent1;
+    border-radius: @Padding / 4;
+    cursor: pointer;
+
+    a& {
+        text-decoration: none !important;
+        color: @White !important;
+
+        &:hover {
+            background-color: @Black;
+        }
+    }
+
+    &.secondary {
+        background-color: @BaseColor;
+        border: 2px solid @Accent1;
+        color: @Accent1 !important;
+
+        &:hover {
+            background-color: @White;
+        }
+    }
+
+    &.prev {
+        float: left;
+        font-weight: bold;
+        border-color: @Accent2;
+        background-color: @Accent2;
+        padding: @Padding/4 1ex;
+    }
+
+    &.next {
+        float: right;
+        font-weight: bold;
+        border-color: @Accent2;
+        background-color: @Accent2;
+        padding: @Padding/4 1ex;
+    }
+}
+
+
+
+h2 {
+    background-color: fadeout(@Accent2, 80);
+    margin: -@Padding -@Padding @Padding -@Padding;
+    padding: @Padding/2 @Padding;
+    color: @Accent2;
+    font-weight: 100;
+    font-size: 160%;
+    border-radius: @Padding @Padding 0 0;
+}
+
+table.grid {
+    border-collapse: collapse;
+    width: 100%;
+
+    td, th {
+        border: solid 1px @Accent1;
+        padding: @Padding/4;
+        text-align: left;
+
+        &.gravatar {
+            padding: 0;
+            width: 30px;
+
+            img {
+                display: block;
+            }
+        }
+    }
+
+    thead th {
+        background-color: fadeout(@Accent1, 75);
+    }
+}
+
+article {
+    margin-bottom: 1ex;
+    border: 1px solid fadeout(@Accent1, 60);
+    border-radius: .5ex;
+    min-height: 50px;
+
+    .gravatar {
+        float: left;
+        margin: -1px 10px 0 -1px;
+        border-top-left-radius: .5ex;
+        border-bottom-right-radius: .5ex;
+    }
+
+    h3 {
+        margin: 0;
+        padding: .1ex 0;
+        color: @Accent1;
+        font-weight: bold;
+        font-size: 100%;
+        background-color: fadeout(@Accent1, 90);
+        border-top-left-radius: .5ex;
+        border-top-right-radius: .5ex;
+        min-height: 25px;
+    }
+
+    aside {
+        font-size: 75%;
+    }
+
+    p {
+        margin: 5px 5px 5px 50px;
+    }
+
+    .body {
+        margin: 5px;
+    }
+
+    &.noicon {
+        h3 {
+            padding-left: 5px;
+        }
+
+        aside {
+            margin-left: 5px;
+        }
+
+        p {
+            margin: 5px;
+        }
+    }
+}

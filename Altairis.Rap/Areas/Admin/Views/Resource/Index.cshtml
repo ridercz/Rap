@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Altairis.Rap.Data.Resource>
+@{
+    ViewBag.Title = "Seznam zdrojů";
+}
+<h2>@ViewBag.Title</h2>
+<table class="grid">
+    <thead>
+        <tr>
+            <th>Název</th>
+            <th>Popis</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    <a href="@Url.Action("Delete",new { resourceId = item.ResourceId })" title="Smazat" class="icon">&#x274C;</a>
+                    @Html.ActionLink(item.Name, "Edit", new { resourceId = item.ResourceId })
+                </td>
+                <td>@item.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<footer>
+    @Html.ActionLink("Nový zdroj", "Create", null, new { @class = "button" })
+    @Html.ActionLink("Zpět", "Index", "Home", new { area = "" }, new { @class = "button secondary" })
+</footer>

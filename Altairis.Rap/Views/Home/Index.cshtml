@@ -1,0 +1,58 @@
+﻿@model HomeViewModel
+@{
+    ViewBag.Title = "Úvod";
+    ViewBag.SkipRenderingSection = true;
+}
+<section>
+    <ul>
+        <li>
+            <b>Rezervace</b>
+            <ul>
+                @if (Model.MyBookingCount > 0) {
+                    <li>@Html.ActionLink(string.Format("Moje rezervace ({0})", Model.MyBookingCount), "MyBookings", "Booking")</li>
+                }
+                else {
+                    <li>Nemáte žádné aktivní rezervace</li>
+                }
+                @foreach (var item in Model.Resources) {
+                    <li>@Html.ActionLink(item.Name, "Index", "Booking", new { resourceId = item.ResourceId }, null)</li>
+                }
+            </ul>
+
+        </li>
+        @if (this.User.Identity.Name.Equals("administrator")) {
+            <li>
+                <b>Systém</b>
+                <ul>
+                    <li>@Html.ActionLink("Zdroje", "Index", "Resource", new { area = "Admin" }, null)</li>
+                    <li>@Html.ActionLink("Uživatelé", "Index", "User", new { area = "Admin" }, null)</li>
+                    <li>@Html.ActionLink("Aktivity", "Index", "Activity", new { area = "Admin" }, null)</li>
+                    <li>@Html.ActionLink("Systémová nastavení", "Index", "Options", new { area = "Admin" }, null)</li>
+                </ul>
+            </li>
+        }
+        <li>
+            <b>Účet</b>
+            <ul>
+                <li>@Html.ActionLink("Moje nastavení", "Index", "Account")</li>
+                <li>@Html.ActionLink("Odhlášení", "Logout", "Account")</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+<section>
+    <h2>Nástěnka</h2>
+    @if (Model.Messages.Any()) {
+        foreach (var item in Model.Messages) {
+            @Html.Partial("_Message", item)
+        }
+        <aside>&raquo; @Html.ActionLink("Starší zprávy...", "Index", "Message")</aside>
+
+    }
+    else {
+        <p>Na nástěnce nejsou žádné zprávy</p>
+        <footer>
+            @Html.ActionLink("Nová zpráva", "Create", "Message", null, new { @class = "button" })
+        </footer>
+    }
+</section>

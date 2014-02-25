@@ -1,0 +1,16 @@
+﻿<h2>@ViewBag.Title</h2>
+@using (Html.BeginForm()) {
+    if (!String.IsNullOrWhiteSpace(ViewBag.HeaderText)) {
+        <header>@Html.Raw(ViewBag.HeaderText)</header>
+    }
+    @Html.AntiForgeryToken()
+    @Html.EditorForModel()
+    <footer>
+        @Html.ValidationSummary()
+        <input type="submit" value="@(ViewBag.SubmitText ?? "Odeslat")" class="button" />
+        @if (!string.IsNullOrWhiteSpace(ViewBag.CancelAction)) {
+            @Html.ActionLink((string)(ViewBag.CancelText ?? "Zpět"), (string)ViewBag.CancelAction, (string)ViewBag.CancelController, new { area = (string)ViewBag.CancelArea }, new { @class = "button secondary" })
+        }
+    </footer>
+}
+

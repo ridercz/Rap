@@ -1,0 +1,33 @@
+﻿@model IEnumerable<MembershipUser>
+@{
+    ViewBag.Title = "Správa uživatelů";
+}
+<h2>@ViewBag.Title</h2>
+<table class="grid">
+    <thead>
+        <tr>
+            <th colspan="2">Uživatel</th>
+            <th>E-mail</th>
+            <th>Aktivní</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td class="gravatar">@Html.GravatarImage(item.Email, size: 30, rating: GravatarHtmlHelper.Rating.X, defaultImage: GravatarHtmlHelper.DefaultImage.Identicon)</td>
+                @if (@item.UserName.Equals("administrator", StringComparison.CurrentCultureIgnoreCase)) {
+                    <td>@item.UserName</td>
+                }
+                else {
+                    <td>@Html.ActionLink(@item.UserName, "edit", new { userName = @item.UserName })</td>
+                }
+                <td><a href="mailto:@item.Email">@item.Email</a></td>
+                <td>@(item.IsApproved ? "ano" : "ne")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<footer>
+    @Html.ActionLink("Nový uživatel", "Create", null, new { @class = "button" })
+    @Html.ActionLink("Zpět", "Index", "Home", new { area = "" }, new { @class = "button secondary" })
+</footer>

@@ -1,0 +1,14 @@
+﻿<h2>@ViewBag.Title</h2>
+@using (Html.BeginForm()) {
+    if (!String.IsNullOrWhiteSpace(ViewBag.HeaderText)) {
+        <header>@ViewBag.HeaderText</header>
+    }
+    @Html.AntiForgeryToken()
+    <p>@(ViewBag.ConfirmPrompt ?? "Opravdu chcete tuto akci provést?")</p>
+    <footer>
+        @Html.ValidationSummary()
+        <input type="submit" value="Ano" class="button" />
+        <a href="javascript:history.back(-1);" class="button secondary">Ne</a>
+    </footer>
+}
+

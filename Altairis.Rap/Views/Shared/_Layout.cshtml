@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - @RuntimeOptions.Current.ApplicationTitle</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/Scripts/modernizr", "~/Scripts/jquery", "~/Scripts/jqui", "~/Scripts/jqext", "~/Scripts/Site/js")
+</head>
+<body>
+    <header>
+        <h1>@Html.ActionLink(RuntimeOptions.Current.ApplicationTitle, "Index", "Home", new { area = "" }, null)</h1>
+        @if (this.Request.IsAuthenticated) {
+            <aside>
+                <span>@this.User.Identity.Name</span>
+                <a href="@Url.Action("Index", "Account", new { area = "" }, null)">&#x1f527; nastavení</a>
+                <a href="@Url.Action("Logout", "Account", new { area = "" }, null)">&#x1f6aa; odhlášení</a>
+            </aside>
+        }
+    </header>
+    @if (ViewBag.SkipRenderingSection ?? false) {
+        @RenderBody()
+    }
+    else {
+        <section>
+            @RenderBody()
+        </section>
+    }
+    <footer>
+        Copyright &copy; <a href="http://www.altairis.cz/">Altairis</a>, 2014
+    </footer>
+</body>
+
+</html>

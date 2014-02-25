@@ -1,0 +1,27 @@
+﻿@model ReservationViewModel
+@{
+    ViewBag.Title = "Nová rezervace";
+}
+<h2>@ViewBag.Title</h2>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken();
+    <p class="three">
+        <label>Datum, začátek, konec:</label><br />
+        @Html.EditorFor(m => Model.Date)
+        @Html.EditorFor(m => Model.TimeBegin)
+        @Html.EditorFor(m => Model.TimeEnd)
+    </p>
+    <p>
+        @Html.LabelFor(m => Model.ActivityId):<br />
+        @Html.DropDownListFor(m => Model.ActivityId, Model.ActivityList, new { @class = "text-box single-line" })
+    </p>
+    <p>
+        @Html.LabelFor(m => Model.Notes)<br />
+        @Html.EditorFor(m => Model.Notes)
+    </p>
+    <footer>
+        @Html.ValidationSummary()
+        <input type="submit" value="Rezervovat" class="button" />
+        @Html.ActionLink("Zpět", "Index", null, new { @class = "button secondary" })
+    </footer>
+}

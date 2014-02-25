@@ -1,0 +1,37 @@
+﻿@model ResourceListViewModel
+@{
+    if (ViewBag.HistoryView) {
+        ViewBag.Title = string.Format("Historie rezervací: {0}", Model.ResourceName);
+    }
+    else {
+        ViewBag.Title = string.Format("Seznam rezervací: {0}", Model.ResourceName);
+    }
+}
+<h2>@ViewBag.Title</h2>
+@if (!string.IsNullOrWhiteSpace(Model.ResourceDescription)) {
+    <p>@Model.ResourceDescription</p>
+}
+@if (Model.Bookings.Any()) {
+    foreach (var item in Model.Bookings) {
+        <article>
+            @Html.GravatarImage(item.UserEmail, size: 40, rating: GravatarHtmlHelper.Rating.X, defaultImage: GravatarHtmlHelper.DefaultImage.Identicon)
+            <h3>@item.DateString</h3>
+            <aside>
+                @item.UserName | @item.ActivityName
+            </aside>
+            @if (!string.IsNullOrWhiteSpace(item.Notes)) {
+                <p>@item.Notes</p>
+            }
+        </article>
+    }
+}
+else {
+    <p>Nejsou naplánované žádné rezervace</p>
+}
+@if (!ViewBag.HistoryView) {
+    <aside>&raquo; @Html.ActionLink("Historie rezervací...", "History")</aside>
+}
+<footer>
+    @Html.ActionLink("Nová rezervace", "Create", null, new { @class = "button" })
+    @Html.ActionLink("Zpět", "Index", "Home", null, new { @class = "button secondary" })
+</footer>

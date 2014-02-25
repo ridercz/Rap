@@ -1,0 +1,11 @@
+﻿@model Altairis.Rap.Data.Message
+<article>
+    @Html.GravatarImage(Model.User.Email, size: 40, rating: GravatarHtmlHelper.Rating.X, defaultImage: GravatarHtmlHelper.DefaultImage.Identicon)
+    <h3>@Model.Subject</h3>
+    <aside>
+        @Model.User.UserName | @Model.DateCreated.ToLongDateString()
+    </aside>
+    <div class="body">
+        @Model.Body
+    </div>
+</article>
