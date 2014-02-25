@@ -443,6 +443,27 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <PropertyGroup>
+    <MSBuildCommunityTasksPath>$(SolutionDir)\.build</MSBuildCommunityTasksPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.Targets" />
+  <Target Name="BeforeBuild">
+    <Time Format="yyyy.MM.dd.HHmm" Kind="Utc">
+      <Output TaskParameter="Year" PropertyName="Year" />
+      <Output TaskParameter="FormattedTime" PropertyName="TimeVersion" />
+    </Time>
+    <Message Text="$(AssemblyName) version $(TimeVersion)" Importance="high" />
+    <AssemblyInfo CodeLanguage="CS"
+                  OutputFile="Properties\AssemblyInfo.cs"
+                  AssemblyTitle="Altairis Rap Web UI"
+                  AssemblyDescription="Rezervační systém (nejen) pro jezdecké oddíly."
+                  AssemblyCompany="Altairis, s. r. o."
+                  AssemblyProduct="Altairis Rap"
+                  AssemblyCopyright="Copyright © Altairis, $(Year)"
+                  AssemblyConfiguration="$(BuildConfiguration)"
+                  AssemblyVersion="$(TimeVersion)"
+                  AssemblyFileVersion="$(TimeVersion)" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
