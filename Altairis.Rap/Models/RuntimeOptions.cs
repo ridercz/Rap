@@ -20,6 +20,9 @@ namespace Altairis.Rap.Models {
         [ScaffoldColumn(false)]
         public DateTime DateSaved { get; set; }
 
+        [ScaffoldColumn(false)]
+        public Version Version { get; set; }
+
         [Display(Name = "Název aplikace", Description = "Zobrazuje se v titulku, např. 'JK Epona'.")]
         [Required(ErrorMessage = "Není zadán název")]
         public string ApplicationTitle { get; set; }
@@ -61,6 +64,7 @@ namespace Altairis.Rap.Models {
                                 currentOptions.Save(false);
                             }
                         }
+                        currentOptions.Version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
                     }
                 }
                 return currentOptions;
