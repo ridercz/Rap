@@ -57,7 +57,7 @@ namespace Altairis.Rap.Models {
                             else {
                                 // Create default settings
                                 currentOptions = new RuntimeOptions {
-                                    ApplicationTitle = "Rezervační systém RAT",
+                                    ApplicationTitle = "Rezervační systém RAP",
                                     UseMailing = false,
                                     SmtpPort = 25,
                                 };
